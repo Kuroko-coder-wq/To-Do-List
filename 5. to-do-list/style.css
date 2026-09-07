@@ -1,0 +1,252 @@
+@import url('https://googleapis.com');
+
+* {
+   margin: 0;
+   padding: 0; 
+   box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('bg-todo.jfif') no-repeat center center / cover;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+}
+
+.todo-app {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+    border: 3px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+}
+
+.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.todo-app img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.todo-app h1 {
+    font-family: 'Jost', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    width: 100%;
+}
+
+.input-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-area input {
+    flex: 1;
+    padding: 10px 17px;
+    border-radius: 22px;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    background-color: rgba(194, 209, 255, 0.3);
+    color: #dbdbdb;
+}
+
+.input-area input::placeholder {
+    color: #bcbcbc;
+}
+
+.input-area button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.1rem;
+    border-radius: 50%;
+    padding: 10px; 
+    width: 42px;   
+    height: 42px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    background: rgba(194, 209, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.input-area button:hover {
+    background: #6f91ff;
+    transform: scale(1.1);
+}
+
+.todos-container {
+    width: 100%;
+}
+
+#task-list {
+    width: 100%;
+    list-style: none; 
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#task-list li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;    
+    background-color: rgba(194, 209, 255, 0.3);
+    margin-bottom: 10px;
+    padding: 12px 18px; 
+    border-radius: 30px;
+    font-size: 1.2rem;
+    color: #fff;
+    position: relative;
+    transition: box-shadow 0.2s ease;
+}
+
+#task-list li:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#task-list li .checkbox {
+    -webkit-appearance: none;
+    appearance: none;
+    min-width: 22px;
+    height: 22px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#task-list li .checkbox:checked {
+    background: #6f91ff;
+    border-color: #6f91ff;
+}
+
+#task-list li .checkbox:checked::before {
+    content: '\2713';
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+#task-list li span {
+    font-family: 'Jost', sans-serif;
+    flex: 1;
+    margin-left: 12px;
+    word-break: break-word;
+    display: flex;
+    align-items: center; 
+}
+
+.task-buttons {
+    display: flex;
+    margin-left: auto;
+    gap: 10px;
+}
+
+.task-buttons button {
+    background: rgba(194, 200, 255, 0.3);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.8rem;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-buttons button:hover {
+    transform: scale(1.2);
+}
+
+.task-buttons .edit-btn {
+    background: #ffbf00;
+}
+
+.task-buttons .delete-btn {
+    background: #ff4d4d;
+}
+
+.details {
+    width: 100%;
+}
+
+.details h3 {
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+}
+
+#progressbar {
+    width: 100%;
+    height: 7px;
+    background-color: rgba(194, 209, 255, 0.3);
+    border-radius: 20px;
+    position: relative;
+    margin-top: 15px;
+}
+
+.stats-container {
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+#progress {
+    width: 0%;
+    height: 100%;
+    background-color: #6f91ff;
+    border-radius: 20px;
+    transition: width 0.3s ease;
+}
+
+#numbers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background-color: #6f91ff;
+    border: 2px solid rgba(194, 209, 255, 0.3);
+    font-weight: bold;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-family: 'Jost', sans-serif;
+}

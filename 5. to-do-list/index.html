@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism To Do List</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="todo-app"> 
+            <h1>To Do App</h1>
+            <div class="stats-container">
+                <div class="details">
+                    <h3>Keep it Up!</h3>
+                    <div id="progressbar">
+                        <div id="progress"></div>
+                    </div>
+                </div>
+                <div class="stats-number">
+                    <p id="numbers">0 / 0</p>
+                </div>
+            </div>
+            <form action="" class="input-area">
+                <input type="text" id="task-input" placeholder="Add a new task" required>
+                <button type="submit" id="add-task-btn"><i class="fa-solid fa-plus"></i></button>
+            </form>
+            <div class="todos-container">
+                <ul id="task-list"></ul>
+                <img class="empty" src="svgviewer-output.svg" alt="No tasks pending" style="display: block; margin: 20px auto; width: 150px;">
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+<!-- 1. Load the external confetti library first -->
+<script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@4.4.0/tsparticles.confetti.bundle.min.js"></script>
+
+<!-- 2. Write your custom JavaScript in a separate script tag -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        confetti({ particleCount: 100, angle: 60, spread: 70, origin: { x: 0, y: 0.9 } });
+        confetti({ particleCount: 100, angle: 120, spread: 70, origin: { x: 1, y: 0.9 } });
+    });
+</script>
+
+</body>
+</html>
